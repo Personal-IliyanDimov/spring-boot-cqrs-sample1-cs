@@ -1,10 +1,10 @@
-package org.imd.cqrs.cs.springbootcqrssample1cs;
+package org.imd.cqrs.sample1.cs;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SpringBootCqrsSample1CsApplicationTests {
+class CqrsSample1CsApplicationTests {
 
 	@Test
 	void contextLoads() {

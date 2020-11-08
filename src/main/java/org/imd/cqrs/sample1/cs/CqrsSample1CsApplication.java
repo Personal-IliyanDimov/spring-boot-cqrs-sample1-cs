@@ -1,13 +1,13 @@
-package org.imd.cqrs.cs.springbootcqrssample1cs;
+package org.imd.cqrs.sample1.cs;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringBootCqrsSample1CsApplication {
+public class CqrsSample1CsApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringBootCqrsSample1CsApplication.class, args);
+		SpringApplication.run(CqrsSample1CsApplication.class, args);
 	}
 
 }
