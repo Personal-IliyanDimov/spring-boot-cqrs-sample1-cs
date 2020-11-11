@@ -13,7 +13,6 @@ import org.imd.cqrs.sample1.cs.model.Contact;
 import org.imd.cqrs.sample1.cs.model.User;
 
 import java.util.Set;
-import java.util.stream.Collectors;
 
 public class UserService {
 
@@ -24,7 +23,7 @@ public class UserService {
     }
 
     public void createUser(String userId, String firstName, String lastName) {
-        repository.addEvent(userId, new UserCreatedEvent(userId, firstName, lastName));
+        repository.appendEvents(userId, new UserCreatedEvent(userId, firstName, lastName));
     }
 
     public void updateUser(String userId, Set<Contact> contacts, Set<Address> addresses) throws Exception {
@@ -35,18 +34,18 @@ public class UserService {
         user.getContacts()
             .stream()
             .filter(c -> !contacts.contains(c))
-            .forEach(c -> repository.addEvent(userId, new UserContactRemovedEvent(c.getType(), c.getDetail())));
+            .forEach(c -> repository.appendEvents(userId, new UserContactRemovedEvent(c.getContactId(), c.getType(), c.getDetail())));
         contacts.stream()
             .filter(c -> !user.getContacts()
                 .contains(c))
-            .forEach(c -> repository.addEvent(userId, new UserContactAddedEvent(c.getType(), c.getDetail())));
+            .forEach(c -> repository.appendEvents(userId, new UserContactAddedEvent(c.getContactId(), c.getType(), c.getDetail())));
         user.getAddresses()
             .stream()
             .filter(a -> !addresses.contains(a))
-            .forEach(a -> repository.addEvent(userId, new UserAddressRemovedEvent(a.getCity(), a.getState(), a.getPostcode())));
+            .forEach(a -> repository.appendEvents(userId, new UserAddressRemovedEvent(a.getAddressId(), a.getCity(), a.getState(), a.getPostcode())));
         addresses.stream()
             .filter(a -> !user.getAddresses()
                 .contains(a))
-            .forEach(a -> repository.addEvent(userId, new UserAddressAddedEvent(a.getCity(), a.getState(), a.getPostcode())));
+            .forEach(a -> repository.appendEvents(userId, new UserAddressAddedEvent(a.getAddressId(), a.getCity(), a.getState(), a.getPostcode())));
     }
 }

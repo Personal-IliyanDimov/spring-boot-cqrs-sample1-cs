@@ -8,7 +8,7 @@ import lombok.EqualsAndHashCode;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 public class UserContactRemovedEvent extends Event {
-
+    private String contactId;
     private String contactType;
     private String contactDetails;
 

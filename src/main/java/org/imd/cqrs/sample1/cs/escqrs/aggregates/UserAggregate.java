@@ -29,7 +29,7 @@ public class UserAggregate {
 
     public List<Event> handleCreateUserCommand(CreateUserCommand command) {
         UserCreatedEvent event = new UserCreatedEvent(command.getUserId(), command.getFirstName(), command.getLastName());
-        eventStore.addEvent(command.getUserId(), event);
+        eventStore.appendEvents(command.getUserId(), event);
         return Arrays.asList(event);
     }
 
@@ -45,7 +45,7 @@ public class UserAggregate {
         for (Contact contact : contactsToRemove) {
             UserContactRemovedEvent contactRemovedEvent = new UserContactRemovedEvent(contact.getType(), contact.getDetail());
             events.add(contactRemovedEvent);
-            eventStore.addEvent(command.getUserId(), contactRemovedEvent);
+            eventStore.appendEvents(command.getUserId(), contactRemovedEvent);
         }
 
         List<Contact> contactsToAdd = command.getContacts()
@@ -56,7 +56,7 @@ public class UserAggregate {
         for (Contact contact : contactsToAdd) {
             UserContactAddedEvent contactAddedEvent = new UserContactAddedEvent(contact.getType(), contact.getDetail());
             events.add(contactAddedEvent);
-            eventStore.addEvent(command.getUserId(), contactAddedEvent);
+            eventStore.appendEvents(command.getUserId(), contactAddedEvent);
         }
 
         List<Address> addressesToRemove = user.getAddresses()
@@ -67,7 +67,7 @@ public class UserAggregate {
         for (Address address : addressesToRemove) {
             UserAddressRemovedEvent addressRemovedEvent = new UserAddressRemovedEvent(address.getCity(), address.getState(), address.getPostcode());
             events.add(addressRemovedEvent);
-            eventStore.addEvent(command.getUserId(), addressRemovedEvent);
+            eventStore.appendEvents(command.getUserId(), addressRemovedEvent);
         }
 
         List<Address> addressesToAdd = command.getAddresses()
@@ -78,7 +78,7 @@ public class UserAggregate {
         for (Address address : addressesToAdd) {
             UserAddressAddedEvent addressAddedEvent = new UserAddressAddedEvent(address.getCity(), address.getState(), address.getPostcode());
             events.add(addressAddedEvent);
-            eventStore.addEvent(command.getUserId(), addressAddedEvent);
+            eventStore.appendEvents(command.getUserId(), addressAddedEvent);
         }
 
         return events;

@@ -17,6 +17,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -40,19 +41,37 @@ public class UserController {
         return ResponseEntity.ok(userMapper.toUserDto(createdUser));
     }
 
-    @PostMapping(value = "/{id}/address")
-    ResponseEntity<UserAddressDto> addUserAddress(@PathVariable(name = "id") @NotNull Long userId,
+    @PostMapping(value = "/{userid}/address")
+    ResponseEntity<UserAddressDto> addUserAddress(@PathVariable(name = "userid") @NotNull Long userId,
                                            @RequestBody @Valid UserAddressDto userAddressDto) throws UserNotFoundException {
         final Address address = userMapper.toUserAddress(userAddressDto);
         final Address storedAddress = userService.addUserAddress(userId, address);
         return ResponseEntity.ok(userMapper.toUserAddressDto(storedAddress));
     }
 
-    @PostMapping(value = "/{id}/contact")
-    ResponseEntity<UserContactDto> addUserContact(@PathVariable(name = "id") @NotNull Long userId,
+    @PutMapping(value = "/{userid}/address/{addressid}")
+    ResponseEntity<UserAddressDto> changeUserAddress(@PathVariable(name = "userid") @NotNull Long userId,
+                                                     @PathVariable(name = "addressid") @NotNull Long addressId,
+                                                     @RequestBody @Valid UserAddressDto userAddressDto) throws UserNotFoundException {
+        final Address address = userMapper.toUserAddress(userAddressDto);
+        final Address storedAddress = userService.changeUserAddress(userId, addressId,address);
+        return ResponseEntity.ok(userMapper.toUserAddressDto(storedAddress));
+    }
+
+    @PostMapping(value = "/{userid}/contact")
+    ResponseEntity<UserContactDto> addUserContact(@PathVariable(name = "userid") @NotNull Long userId,
                                                   @RequestBody @Valid UserContactDto userContactDto) throws UserNotFoundException {
         final Contact contact = userMapper.toUserContact(userContactDto);
         final Contact storedContact = userService.addUserContact(userId, contact);
+        return ResponseEntity.ok(userMapper.toUserContactDto(storedContact));
+    }
+
+    @PutMapping(value = "/{userid}/contact/{contactid}")
+    ResponseEntity<UserContactDto> changeUserContact(@PathVariable(name = "userid") @NotNull Long userId,
+                                                     @PathVariable(name = "contactid") @NotNull Long contactId,
+                                                     @RequestBody @Valid UserContactDto userContactDto) throws UserNotFoundException {
+        final Contact contact = userMapper.toUserContact(userContactDto);
+        final Contact storedContact = userService.changeUserContact(userId, contactId, contact);
         return ResponseEntity.ok(userMapper.toUserContactDto(storedContact));
     }
 }

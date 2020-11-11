@@ -22,7 +22,18 @@ public class UserService {
     }
 
     @Transactional
+    public Address changeUserAddress(Long userId, Long addressId, Address address) {
+        return null;
+    }
+
+    @Transactional
     public Contact addUserContact(Long userId, Contact contact) {
         return null;
     }
+
+    @Transactional
+    public Contact changeUserContact(Long userId, Long contactId, Contact contact) {
+        return null;
+    }
+
 }

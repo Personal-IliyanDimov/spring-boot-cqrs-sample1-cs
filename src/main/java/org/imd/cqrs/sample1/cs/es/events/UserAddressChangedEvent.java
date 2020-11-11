@@ -7,7 +7,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
-public class UserAddressRemovedEvent extends Event {
+public class UserAddressChangedEvent extends Event {
     private String addressId;
     private String city;
     private String state;
