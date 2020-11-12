@@ -1,14 +1,12 @@
 package org.imd.cqrs.sample1.cs.cqrs.commands;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
-@AllArgsConstructor
-public class CreateUserCommand {
-
+@Getter
+@Setter
+public class UserDeleteCommand {
     private Long userId;
     private String firstName;
     private String lastName;
-
 }

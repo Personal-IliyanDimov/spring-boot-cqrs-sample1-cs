@@ -1,10 +1,8 @@
 package org.imd.cqrs.sample1.cs.jaxrs.model.mapper;
 
 import org.imd.cqrs.sample1.cs.jaxrs.model.dto.UserAddressDto;
-import org.imd.cqrs.sample1.cs.jaxrs.model.dto.UserContactDto;
 import org.imd.cqrs.sample1.cs.jaxrs.model.dto.UserDto;
 import org.imd.cqrs.sample1.cs.model.Address;
-import org.imd.cqrs.sample1.cs.model.Contact;
 import org.imd.cqrs.sample1.cs.model.User;
 import org.mapstruct.Mapper;
 
@@ -15,7 +13,4 @@ public interface UserMapper {
 
     Address toUserAddress(UserAddressDto userAddressDto);
     UserAddressDto toUserAddressDto(Address storedAddress);
-
-    Contact toUserContact(UserContactDto userContactDto);
-    UserContactDto toUserContactDto(Contact storedAddress);
 }
