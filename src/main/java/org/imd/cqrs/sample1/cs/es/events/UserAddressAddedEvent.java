@@ -8,7 +8,7 @@ import lombok.EqualsAndHashCode;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 public class UserAddressAddedEvent extends Event {
-    private String addressId;
+    private Long addressId;
     private String city;
     private String state;
     private String postCode;

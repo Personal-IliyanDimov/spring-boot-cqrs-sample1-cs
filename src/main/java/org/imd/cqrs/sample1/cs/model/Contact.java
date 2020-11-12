@@ -6,7 +6,7 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class Contact {
-    private String contactId;
+    private Long contactId;
     private String type;
     private String detail;
 

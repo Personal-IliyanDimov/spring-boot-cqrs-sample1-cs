@@ -9,7 +9,7 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = false)
 public class UserCreatedEvent extends Event {
 
-    private String userId;
+    private Long userId;
     private String firstName;
     private String lastName;
 

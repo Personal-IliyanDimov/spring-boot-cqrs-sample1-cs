@@ -1,1 +1,17 @@
+server:
+  port: 10200
 
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    database-platform: org.hibernate.dialect.PostgreSQL95Dialect
+  datasource:
+    url: "jdbc:postgresql://localhost:5432/spring-boot-cqrs-sample1-cs"
+    username: postgres
+    password: postgres
+  zipkin:
+    enabled: false
+
+  flyway:
+    locations: filesystem:/db/migration

@@ -1,5 +1,6 @@
 package org.imd.cqrs.sample1.cs.es.service;
 
+import lombok.RequiredArgsConstructor;
 import org.imd.cqrs.sample1.cs.es.events.Event;
 import org.imd.cqrs.sample1.cs.es.events.UserAddressAddedEvent;
 import org.imd.cqrs.sample1.cs.es.events.UserAddressChangedEvent;
@@ -8,20 +9,25 @@ import org.imd.cqrs.sample1.cs.es.events.UserContactAddedEvent;
 import org.imd.cqrs.sample1.cs.es.events.UserContactChangedEvent;
 import org.imd.cqrs.sample1.cs.es.events.UserContactRemovedEvent;
 import org.imd.cqrs.sample1.cs.es.events.UserCreatedEvent;
-import org.imd.cqrs.sample1.cs.es.repository.EventStore;
+import org.imd.cqrs.sample1.cs.es.store.EventStore;
 import org.imd.cqrs.sample1.cs.model.Address;
 import org.imd.cqrs.sample1.cs.model.Contact;
 import org.imd.cqrs.sample1.cs.model.User;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.UUID;
 
+@Component
+@RequiredArgsConstructor
 public class UserUtility {
 
-    public static User recreateUserState(EventStore store, String userId) {
+    private final EventStore eventStore;
+
+    public User recreateUserState(Long userId) {
         User user = null;
 
-        List<Event> events = store.getEvents(userId);
+        List<Event> events = eventStore.getEvents(userId);
         for (Event event : events) {
             if (event instanceof UserCreatedEvent) {
                 UserCreatedEvent e = (UserCreatedEvent) event;

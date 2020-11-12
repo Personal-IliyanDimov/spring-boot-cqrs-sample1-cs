@@ -7,7 +7,7 @@ import lombok.Data;
 @AllArgsConstructor
 public class CreateUserCommand {
 
-    private String userId;
+    private Long userId;
     private String firstName;
     private String lastName;
 

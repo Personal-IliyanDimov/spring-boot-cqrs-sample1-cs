@@ -12,7 +12,7 @@ import java.util.Set;
 @AllArgsConstructor
 public class UpdateUserCommand {
 
-    private String userId;
+    private Long userId;
     private Set<Address> addresses = new HashSet<>();
     private Set<Contact> contacts = new HashSet<>();
 
