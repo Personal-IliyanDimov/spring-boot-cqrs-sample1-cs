@@ -5,7 +5,6 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class PostUpdateCommand {
+public class DeletePostCommand {
     private Long id;
-    private String title;
 }

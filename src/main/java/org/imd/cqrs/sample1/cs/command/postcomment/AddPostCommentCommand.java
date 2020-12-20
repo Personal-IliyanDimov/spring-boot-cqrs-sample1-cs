@@ -5,7 +5,8 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class PostDeleteCommentCommand {
+public class AddPostCommentCommand {
     private Long postId;
     private Long postCommentId;
+    private String review;
 }
