@@ -1,4 +1,4 @@
-package org.imd.cqrs.sample1.cs.repository;
+package org.imd.cqrs.sample1.model.write.repository;
 
 import org.imd.cqrs.sample1.model.write.entity.PostCommentEntity;
 import org.springframework.data.jpa.repository.JpaRepository;

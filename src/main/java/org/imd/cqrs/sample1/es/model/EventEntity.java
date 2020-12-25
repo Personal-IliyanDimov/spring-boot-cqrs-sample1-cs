@@ -7,9 +7,7 @@ import lombok.Setter;
 @Setter
 public class EventEntity {
    private Long id;
-   private String data;
    private String type;
-
-   private TransactionEntity transaction;
-   private Integer sequenceInTransaction;
+   private String data;
+   private Integer sequence;
 }

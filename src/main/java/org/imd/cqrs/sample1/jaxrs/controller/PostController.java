@@ -11,7 +11,7 @@ import org.imd.cqrs.sample1.jaxrs.model.dto.PostDto;
 import org.imd.cqrs.sample1.jaxrs.model.dto.group.CreateGroup;
 import org.imd.cqrs.sample1.jaxrs.model.dto.group.UpdateGroup;
 import org.imd.cqrs.sample1.jaxrs.model.mapper.dto.PostMapper;
-import org.imd.cqrs.sample1.cs.service.PostService;
+import org.imd.cqrs.sample1.service.PostService;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;

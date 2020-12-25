@@ -1,4 +1,4 @@
-package org.imd.cqrs.sample1.cs.service;
+package org.imd.cqrs.sample1.service;
 
 import lombok.RequiredArgsConstructor;
 import org.imd.cqrs.sample1.jaxrs.exception.post.PostNotFoundException;
@@ -6,8 +6,8 @@ import org.imd.cqrs.sample1.jaxrs.exception.postcomment.PostCommentNotFoundExcep
 import org.imd.cqrs.sample1.model.write.entity.PostCommentEntity;
 import org.imd.cqrs.sample1.model.write.entity.PostEntity;
 import org.imd.cqrs.sample1.jaxrs.model.mapper.domain.PostCommentDomainMapper;
-import org.imd.cqrs.sample1.cs.repository.PostCommentRepository;
-import org.imd.cqrs.sample1.cs.repository.PostRepository;
+import org.imd.cqrs.sample1.model.write.repository.PostCommentRepository;
+import org.imd.cqrs.sample1.model.write.repository.PostRepository;
 import org.imd.cqrs.sample1.model.domain.PostComment;
 import org.springframework.stereotype.Service;
 
