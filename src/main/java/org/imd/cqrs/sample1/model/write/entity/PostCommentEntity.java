@@ -1,4 +1,4 @@
-package org.imd.cqrs.sample1.cs.model.entity;
+package org.imd.cqrs.sample1.model.write.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;

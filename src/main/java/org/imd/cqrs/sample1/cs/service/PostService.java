@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.imd.cqrs.sample1.jaxrs.exception.post.PostAlreadyExistsException;
 import org.imd.cqrs.sample1.jaxrs.exception.post.PostNotFoundException;
 import org.imd.cqrs.sample1.jaxrs.exception.post.PostNotUpdatedException;
-import org.imd.cqrs.sample1.cs.model.entity.PostEntity;
+import org.imd.cqrs.sample1.model.write.entity.PostEntity;
 import org.imd.cqrs.sample1.jaxrs.model.mapper.domain.PostDomainMapper;
 import org.imd.cqrs.sample1.cs.repository.PostCommentRepository;
 import org.imd.cqrs.sample1.cs.repository.PostRepository;

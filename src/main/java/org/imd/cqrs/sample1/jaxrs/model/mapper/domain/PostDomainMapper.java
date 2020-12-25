@@ -1,7 +1,7 @@
 package org.imd.cqrs.sample1.jaxrs.model.mapper.domain;
 
 import org.imd.cqrs.sample1.model.domain.Post;
-import org.imd.cqrs.sample1.cs.model.entity.PostEntity;
+import org.imd.cqrs.sample1.model.write.entity.PostEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
 import org.mapstruct.ReportingPolicy;

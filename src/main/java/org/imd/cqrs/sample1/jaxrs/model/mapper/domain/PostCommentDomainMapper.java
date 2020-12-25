@@ -1,6 +1,6 @@
 package org.imd.cqrs.sample1.jaxrs.model.mapper.domain;
 
-import org.imd.cqrs.sample1.cs.model.entity.PostCommentEntity;
+import org.imd.cqrs.sample1.model.write.entity.PostCommentEntity;
 import org.imd.cqrs.sample1.model.domain.PostComment;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
