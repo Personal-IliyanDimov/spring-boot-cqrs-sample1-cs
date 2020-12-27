@@ -7,6 +7,6 @@ import lombok.Setter;
 @Setter
 public class PostComment {
 
-    private Long id;
+    private String id;
     private String review;
 }

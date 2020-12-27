@@ -1,12 +1,12 @@
 package org.imd.cqrs.sample1.es.event;
 
-import lombok.ToString;
+import lombok.Getter;
 
-import java.util.UUID;
+import java.time.LocalDateTime;
 
-@ToString
+@Getter
 public abstract class Event {
 
-    public final UUID id = UUID.randomUUID();
+    private LocalDateTime whenOccurs;
 
 }

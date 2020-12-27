@@ -17,5 +17,4 @@ public class PostCommandHandler {
     public void handle(UpdatePostCommand command) {
 
     }
-
 }

@@ -4,11 +4,13 @@ import lombok.Getter;
 import lombok.Setter;
 import org.imd.cqrs.sample1.es.event.Event;
 
+import java.util.UUID;
+
 @Getter
 @Setter
 public class PostUpdatedEvent extends Event {
 
-    private Long id;
+    private UUID id;
     private String title;
 
 }

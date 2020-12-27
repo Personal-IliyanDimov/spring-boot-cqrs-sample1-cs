@@ -1,4 +1,4 @@
-package org.imd.cqrs.sample1.aggregate.event;
+package org.imd.cqrs.sample1.model.domain.aggregate.event;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -4,9 +4,11 @@ import lombok.Getter;
 import lombok.Setter;
 import org.imd.cqrs.sample1.es.event.Event;
 
+import java.util.UUID;
+
 @Getter
 @Setter
 public class PostToPostCommentRelationDeletedEvent extends Event {
-    private Long postId;
-    private Long postCommentId;
+    private UUID postId;
+    private UUID postCommentId;
 }

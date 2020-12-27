@@ -9,7 +9,7 @@ import java.util.List;
 
 @Getter
 @Setter
-public class AggragateEntity {
+public class AggregateEntity {
 
     private AggregateType type;
     private String aggregateId;

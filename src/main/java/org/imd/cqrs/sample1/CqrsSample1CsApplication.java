@@ -9,5 +9,4 @@ public class CqrsSample1CsApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(CqrsSample1CsApplication.class, args);
 	}
-
 }
