@@ -2,6 +2,7 @@ package org.imd.cqrs.sample1.model.domain.aggregate.event;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 import org.imd.cqrs.sample1.model.domain.Post;
 import org.imd.cqrs.sample1.model.domain.PostComment;
 
@@ -9,6 +10,7 @@ import java.util.List;
 
 @Getter
 @Setter
+@ToString
 public class PostAggregateChangedEvent {
     private Status status;
 

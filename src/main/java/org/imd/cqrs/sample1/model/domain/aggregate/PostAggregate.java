@@ -2,6 +2,7 @@ package org.imd.cqrs.sample1.model.domain.aggregate;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.imd.cqrs.sample1.cs.command.AbstractCommand;
 import org.imd.cqrs.sample1.cs.command.post.CreatePostCommand;
 import org.imd.cqrs.sample1.cs.command.post.DeletePostCommand;
 import org.imd.cqrs.sample1.cs.command.post.UpdatePostCommand;
@@ -52,37 +53,70 @@ public class PostAggregate extends AbstractAggregate {
         super.initState(sourceVersion, eventList);
     }
 
-    public PostAggregate handle(CreatePostCommand command) {
+    public PostAggregateState getState() {
+        return state;
+    }
+
+    public PostAggregate handle(AbstractCommand command) {
+        PostAggregate result = null;
+
+        if (command instanceof CreatePostCommand) {
+            result = doHandle((CreatePostCommand) command);
+        }
+        else if (command instanceof DeletePostCommand) {
+            result = doHandle((CreatePostCommand) command);
+        }
+        else if (command instanceof UpdatePostCommand) {
+            result = doHandle((UpdatePostCommand) command);
+        }
+        if (command instanceof AddPostCommentCommand) {
+            result = doHandle((AddPostCommentCommand) command);
+        }
+        else if (command instanceof DeletePostCommentCommand) {
+            result = doHandle((DeletePostCommentCommand) command);
+        }
+        else if (command instanceof UpdatePostCommentCommand) {
+            result = doHandle((UpdatePostCommentCommand) command);
+        }
+        else {
+            throw new IllegalStateException("Unsupported command type: " + command.getClass().getName());
+        }
+
+
+        return result;
+    }
+
+    private PostAggregate doHandle(CreatePostCommand command) {
         final PostCreatedEvent event = mapper.toEvent(command);
         apply(event);
         return this;
     }
 
-    public PostAggregate handle(DeletePostCommand command) {
+    private PostAggregate doHandle(DeletePostCommand command) {
         final PostDeletedEvent event = mapper.toEvent(command);
         apply(event);
         return this;
     }
 
-    public PostAggregate handle(UpdatePostCommand command) {
+    private PostAggregate doHandle(UpdatePostCommand command) {
         final PostUpdatedEvent event = mapper.toEvent(command);
         apply(event);
         return this;
     }
 
-    public PostAggregate handle(AddPostCommentCommand command) {
+    private PostAggregate doHandle(AddPostCommentCommand command) {
         final PostCommentAddedEvent event = mapper.toEvent(command);
         apply(event);
         return this;
     }
 
-    public PostAggregate handle(DeletePostCommentCommand command) {
+    private PostAggregate doHandle(DeletePostCommentCommand command) {
         final PostCommentDeletedEvent event = mapper.toEvent(command);
         apply(event);
         return this;
     }
 
-    public PostAggregate handle(UpdatePostCommentCommand command) {
+    private PostAggregate doHandle(UpdatePostCommentCommand command) {
         final PostCommentUpdatedEvent event = mapper.toEvent(command);
         apply(event);
         return this;
@@ -267,7 +301,7 @@ public class PostAggregate extends AbstractAggregate {
 
     @Getter
     @Setter
-    private static class PostAggregateState {
+    public static class PostAggregateState {
         private boolean postCreated;
         private boolean postDeleted;
 
