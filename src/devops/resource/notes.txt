@@ -6,6 +6,10 @@ Adminer:
  UN: postgres
 PWD: postgres
 
+Cassandra:
+>> https://hub.docker.com/r/bitnami/cassandra
+
+
 
 
 

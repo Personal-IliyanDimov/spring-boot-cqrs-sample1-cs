@@ -1,4 +1,4 @@
-package org.imd.cqrs.sample1.es.model.enums;
+package org.imd.cqrs.sample1.es.model.shared;
 
 public enum AggregateType {
     POST_AGGREGATE

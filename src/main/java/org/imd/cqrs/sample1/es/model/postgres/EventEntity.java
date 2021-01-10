@@ -1,4 +1,4 @@
-package org.imd.cqrs.sample1.es.model;
+package org.imd.cqrs.sample1.es.model.postgres;
 
 import lombok.Getter;
 import lombok.Setter;

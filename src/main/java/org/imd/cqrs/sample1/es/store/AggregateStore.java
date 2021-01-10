@@ -6,7 +6,4 @@ public interface AggregateStore<T, K> {
 
     K storeAggregate(T t);
 
-    void updateAggregate(T t);
-
-    void deleteAggregate(K k);
 }
